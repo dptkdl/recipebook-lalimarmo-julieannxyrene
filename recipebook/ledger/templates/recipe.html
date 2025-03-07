@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <title>Recipe Book</title>
-</head>
-
-<body>
-    <h1>
-        Recipe Book
-    </h1>
+{% block title %}Recipe List{% endblock %}
+{% block content %}
+    <h2>{{ recipe.name }}</h2>
+    <h3>Ingredients</h3>
+    {% for ingredient in recipe.ingredients.all %}
     <ul>
-        {% for task in ingredients%}
-        <li>{{task.name}}: {{task.quantity}}</li>
-        {% endfor %}
-        <ul>
-</body>
+        <li> {{ ingredient.Quantity }} {{ ingredient.Ingredient.name }}</li>
+    </ul>
+    {% endfor %}
 
-</html>
+{% endblock %}
