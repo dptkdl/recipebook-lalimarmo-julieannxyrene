@@ -8,5 +8,4 @@ urlpatterns = [
     path('recipe/<int:pk>/', RecipeDetailView.as_view(), name="recipe-detail")
 ]
 
-# This might be needed, Depending on your Django version
 app_name = "ledger"
