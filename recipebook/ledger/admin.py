@@ -14,7 +14,7 @@ class RecipeAdmin(admin.ModelAdmin):
 
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
-    list_display = ('Quantity', 'Ingredient', 'Recipe', )
+    list_display = ('quantity', 'ingredient', 'recipe', )
 
 class ProfileInLine(admin.StackedInline):
     model = Profile

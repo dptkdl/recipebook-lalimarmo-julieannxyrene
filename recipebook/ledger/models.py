@@ -38,13 +38,13 @@ class Recipe(models.Model):
         return reverse('ledger:recipe-detail', args=[self.pk])
 
 class RecipeIngredient(models.Model):
-    Quantity = models.CharField(max_length=100)
-    Ingredient = models.ForeignKey(
+    quantity = models.CharField(max_length=100)
+    ingredient = models.ForeignKey(
         Ingredient,
         on_delete=models.CASCADE,
         related_name="recipe"
         )
-    Recipe = models.ForeignKey(
+    recipe = models.ForeignKey(
         Recipe, 
         on_delete=models.CASCADE,
         related_name="ingredients"
