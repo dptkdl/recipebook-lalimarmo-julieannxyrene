@@ -1,14 +1,13 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe
 
-def recipe_list(request):
-    recipes = Recipe.objects.all()
-    return render(request, 'recipes.html', {'recipes': recipes})
+class RecipeListView(LoginRequiredMixin, ListView):
+    context_object_name = "recipes"
+    queryset = Recipe.objects.all()
+    template_name = "recipes.html"
 
-
-def recipe_detail(request, id):
-    recipe = Recipe.objects.get(id=id)
-    context = {
-        'recipe': recipe
-    }
-    return render(request, 'recipe.html', context)
+class RecipeDetailView(LoginRequiredMixin, DetailView):
+    context_object_name = "recipe"
+    model = Recipe
+    template_name = "recipe.html"
