@@ -4,10 +4,13 @@
 {% block title %}Recipe List{% endblock %}
 {% block content %}
     <h2>{{ recipe.name }}</h2>
+    <small>Recipe by: {{recipe.author.name}}</small><br/>
+    <small>Created on: <i>{{recipe.created_on}}</i></small><br/>
+    <small>Updated on: <i>{{recipe.updated_on}}</i></small>
     <h3>Ingredients</h3>
     {% for ingredient in recipe.ingredients.all %}
     <ul>
-        <li> {{ ingredient.Quantity }} {{ ingredient.Ingredient.name }}</li>
+        <li> {{ ingredient.quantity }} {{ ingredient.ingredient.name }}</li>
     </ul>
     {% endfor %}
 
