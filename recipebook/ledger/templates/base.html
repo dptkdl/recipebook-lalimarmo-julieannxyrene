@@ -7,7 +7,7 @@
     <h1>Recipe Book</h1>
     <header id="logout-container">
         <form method="POST" action="{% url 'logout' %}">
-            {% csrf csrf_token %}
+            {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Logout</button>
         </form>
