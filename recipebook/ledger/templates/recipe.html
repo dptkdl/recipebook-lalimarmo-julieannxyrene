@@ -4,6 +4,7 @@
 {% block title %}Recipe List{% endblock %}
 {% block content %}
     <h2>{{ recipe.name }}</h2>
+    <small>Recipe by: {{recipe.author}}</small>
     <h3>Ingredients</h3>
     {% for ingredient in recipe.ingredients.all %}
     <ul>
