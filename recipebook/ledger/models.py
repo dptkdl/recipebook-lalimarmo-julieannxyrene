@@ -2,8 +2,10 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-# Create your models here.
 class Profile(models.Model):
+    '''
+    creates profiles to allow for multiple users
+    '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     bio = models.CharField(max_length=255)
@@ -12,6 +14,9 @@ class Profile(models.Model):
         return self.name
     
 class Ingredient(models.Model):
+    '''
+    used for the names of the ingredients
+    '''
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -21,6 +26,9 @@ class Ingredient(models.Model):
         return reverse('ledger:recipe-detail', args=[self.pk])
 
 class Recipe(models.Model):
+    '''
+    used for the names of the recipes
+    '''
     name = models.CharField(max_length=100)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -38,6 +46,9 @@ class Recipe(models.Model):
         return reverse('ledger:recipe-detail', args=[self.pk])
 
 class RecipeIngredient(models.Model):
+    '''
+    keeps the specific ingredients needed for specific recipes
+    '''
     quantity = models.CharField(max_length=100)
     ingredient = models.ForeignKey(
         Ingredient,
