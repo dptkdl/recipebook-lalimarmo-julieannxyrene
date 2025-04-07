@@ -65,7 +65,7 @@ class RecipeImage(models.Model):
     '''
     used for the image and description of the recipes
     '''
-    image = models.ImageField(upload_to='recipe_images/')
+    image = models.ImageField(null=False, upload_to='images/')
     description = models.CharField(max_length=255)
     recipe = models.ForeignKey(
         Recipe,
