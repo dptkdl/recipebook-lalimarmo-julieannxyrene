@@ -14,11 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
+from ledger.views import RecipeCreateView, RecipeImageUploadView
 
 urlpatterns = [
-    path('', include('ledger.urls')),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('ledger.urls')),  # Include the app URLs
+    path('admin/', admin.site.urls),   # Admin site
+    path('accounts/', include('django.contrib.auth.urls')),  # Authentication URLs
+
+    # Add URLs for creating recipes and uploading images
+    path('recipe/add/', RecipeCreateView.as_view(), name="recipe-add"),
+    path('recipe/<int:pk>/add_image/', RecipeImageUploadView.as_view(), name="recipe-add-image"),
 ]
