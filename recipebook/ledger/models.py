@@ -60,3 +60,18 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE,
         related_name="ingredients"
         )
+    
+class RecipeImage(models.Model):
+    '''
+    used for the image and description of the recipes
+    '''
+    image = models.ImageField(null=False, upload_to='images/')
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='recipe'
+    )
+
+    def __str__(self):
+        return self.description

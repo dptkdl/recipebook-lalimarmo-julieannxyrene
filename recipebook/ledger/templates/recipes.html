@@ -3,9 +3,11 @@
 
 {% block title %}Recipe List{% endblock %}
 {% block content %}
-    <ul>
-        {% for recipe in recipes %}
-        <li><a href="{{recipe.get_absolute_url}}">{{recipe.name}}</a></li>
-        {% endfor %}
-    </ul>
+<br>
+<a href="/recipe/add/"><button>Add Recipe</button></a>
+<ul>
+    {% for recipe in recipes %}
+    <li><a href="{{recipe.get_absolute_url}}">{{ recipe.name }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}
