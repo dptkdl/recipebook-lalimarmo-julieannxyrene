@@ -9,3 +9,5 @@ urlpatterns = [
     path('recipe/add/ingredient/', IngredientCreateView.as_view(), name="ingredient-create"),
     path('recipe/<int:pk>/add_image/', RecipeImageCreateView.as_view(), name="recipeimage-create"),
 ]
+
+app_name = "ledger"
